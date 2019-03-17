@@ -1,0 +1,21 @@
+﻿@model Pds.Vendas.Web.Models.PedidoNovoViewModel
+@{
+	ViewData["Title"] = "Novo";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Novo Pedido</h1>
+
+<form asp-action="Novo">
+	<div class="form-group">
+		<label>Produto</label>
+		<select asp-for="Produto.Id" asp-items="@(new SelectList(Model.Produtos, "Id", "Nome"))">
+			<option>Selecione um produto</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Quantidade</label>
+		<input type="number" max="9999" min="1" asp-for="Quantidade" />
+	</div>
+	<button type="submit" class="btn btn-lg btn-default">Pedir</button>
+</form>

@@ -1,0 +1,31 @@
+﻿@model Pds.Vendas.Web.Models.PedidoIndexViewModel
+@{
+	ViewData["Title"] = "Pedidos";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pedidos</h1>
+<form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Produto</th>
+				<th>Quantidade</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (int i = 0; i < Model.StatusPedidos.Count; i++)
+			{
+				<tr>
+					<td>@Model.StatusPedidos[i].Id</td>
+					<td>@Model.StatusPedidos[i].Produto</td>
+					<td>@Model.StatusPedidos[i].Quantidade</td>
+					<td>@Model.StatusPedidos[i].Status</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<input type="submit" class="btn btn-lg" value="Novo Pedido" asp-controller="Pedido" asp-action="Novo" />
+</form>
