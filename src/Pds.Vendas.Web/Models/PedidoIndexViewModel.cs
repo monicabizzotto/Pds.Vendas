@@ -10,17 +10,17 @@ namespace Pds.Vendas.Web.Models
 	{
 		public PedidoIndexViewModel()
 		{
-			StatusPedidos = new List<ItemStatusPedido>();
+			Pedidos = new List<Pedido>();
 		}
-		public PedidoIndexViewModel(List<RetornoPedido> pedidoStatusResponse)
+		public PedidoIndexViewModel(List<Pedido> pedidos)
 			: this()
 		{
-			for (int i = 0; i < pedidoStatusResponse.Count; i++)
+			for (int i = 0; i < pedidos.Count; i++)
 			{
-				StatusPedidos.Add(new ItemStatusPedido(pedidoStatusResponse[i]));
+				Pedidos.Add(pedidos[i]);
 			}
 		}
 
-		public List<ItemStatusPedido> StatusPedidos { get; set; }
+		public List<Pedido> Pedidos { get; set; }
 	}
 }

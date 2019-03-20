@@ -19,7 +19,7 @@ namespace Pds.Vendas.Web.Models
 
 		public object ToPedido()
 		{
-			return new Pedido(Produto.Id, Quantidade);
+			return new PedidoRequest() { CodigoProduto = Produto.Id, Quantidade = this.Quantidade };
 		}
 	}
 }
